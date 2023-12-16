@@ -1,15 +1,19 @@
 class MenuItem{
-    constructor (title,url){
+    constructor (url,title,icon){
+        if(url.match(/^[a-z#-/\:0-9]+$/) !==null){this.url=url}
+        else{console.error("ERROR:This url has wrong format!")}
+       
         this.title=title
-        this.url=url
-    }
+         if(icon.match(/(bi-[a-zA-z0-9]*)/) !==null ){this.icon=icon} 
+        else{console.error("ERROR:This icon has wrong format!")} 
+     }
 render(){
     return `
-    <a href="${this.url}">${this.title}</a>
+    <a class="nav-link" href="${this.url}">${this.title}<i class="${this.icon}"></i></a>
     `
 }
 }
-class Menu{
+class MenuMain{
     constructor(items){
         this.items = items
     }
@@ -21,7 +25,7 @@ class Menu{
     // html+=`</nav>`
     // return html
 
-    return `<nav>` + this.items.map(item => item.render()).join("") + `</nav>`
+    return `<nav class="nav flex-column">` + this.items.map(item => item.render()).join("") + `</nav>`
     }
 
 }
