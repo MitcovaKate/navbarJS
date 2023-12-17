@@ -4,7 +4,7 @@ class MenuItem{
         else{console.error("ERROR:This url has wrong format!")}
        
         this.title=title
-         if(icon.match(/\b\w+/) !==null ){this.icon=icon} 
+         if(icon.match(/\bbi-\w+/) !==null ){this.icon=icon} 
         else{console.error("ERROR:This icon has wrong format!")} 
      }
 render(){
